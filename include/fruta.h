@@ -1,5 +1,5 @@
-#ifndef _FRUTA_H_
-#define _FRUTA_H_
+#ifndef FRUTA_H
+#define FRUTA_H
 
 #include "produto.h"
 
