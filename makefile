@@ -23,7 +23,7 @@ PROG = $(BIN)/prog1
 CPPFLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
 # Lista dos arquivos objeto (.o) que formam o binario/executavel final
-OBJS = $(OBJ)/produto.o $(OBJ)/fruta.o $(OBJ)/roupa.o $(OBJ)/main.o
+OBJS = $(OBJ)/produto.o $(OBJ)/fruta.o $(OBJ)/roupa.o $(OBJ)/bebida.o $(OBJ)/main.o
 
 all : $(OBJS)
 	$(CC) $(LDFLAGS) -o $(PROG) $(OBJS)
@@ -46,6 +46,9 @@ $(OBJ)/fruta.o : $(INC)/fruta.h $(OBJ)/produto.o
 
 $(OBJ)/roupa.o : $(INC)/roupa.h $(OBJ)/produto.o
 	$(CC) $(CPPFLAGS) -c $(SRC)/roupa.cpp -o $@
+
+$(OBJ)/bebida.o : $(INC)/bebida.h $(OBJ)/produto.o
+	$(CC) $(CPPFLAGS) -c $(SRC)/bebida.cpp -o $@
 
 
 # Alvo para a criação dos diretórios padrão de projetos.
