@@ -23,20 +23,23 @@ PROG = $(BIN)/prog1
 CPPFLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
 # Lista dos arquivos objeto (.o) que formam o binario/executavel final
-OBJS = $(OBJ)/produto.o $(OBJ)/fruta.o $(OBJ)/roupa.o $(OBJ)/bebida.o $(OBJ)/main.o
+OBJS = $(OBJ)/produto.o $(OBJ)/fruta.o $(OBJ)/roupa.o $(OBJ)/bebida.o $(OBJ)/loja.o $(OBJ)/main.o
 
 all : $(OBJS)
 	$(CC) $(LDFLAGS) -o $(PROG) $(OBJS)
 
 # Alvo para a compilação com informações de debug
 # Altera a flag CFLAGS, incluindo as opções -g -O0 e recompila todo o projeto
-debug: CFLAGS += -g -O0 
+debug: CPPFLAGS += -g -O0 
 debug: all
 
 # Alvo para a construcao do objeto build/main.o
 # Define os arquivos objeto dos quais main.o depende.
-$(OBJ)/main.o : $(OBJ)/produto.o $(OBJ)/fruta.o
+$(OBJ)/main.o : $(OBJ)/loja.o
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $@
+	
+$(OBJ)/loja.o : $(INC)/loja.h $(OBJ)/produto.o $(OBJ)/fruta.o $(OBJ)/bebida.o $(OBJ)/roupa.o
+	$(CC) $(CPPFLAGS) -c $(SRC)/loja.cpp -o $@
 
 $(OBJ)/produto.o : $(INC)/produto.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/produto.cpp -o $@
