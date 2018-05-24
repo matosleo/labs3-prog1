@@ -4,24 +4,14 @@
 Roupa::Roupa() {}
 
 Roupa::Roupa(std::string _codigo, std::string _descricao, short _preco, 
-	std::string _data, std::string _tamanho):
-	Produto(_codigo, _descricao, _preco), m_data_lote(_data), m_tamanho(_tamanho) {}
+	std::string _marca, std::string _sexo, std::string _tamanho):
+	Produto(_codigo, _descricao, _preco), m_marca(_marca), m_sexo(_sexo), m_tamanho(_tamanho) {}
 
 Roupa::~Roupa() {}
-
-std::string 
-Roupa::getDataLote() {
-	return m_data_lote;
-}
 
 std::string
 Roupa::getTamanho() {
 	return m_tamanho;
-}
-
-void 
-Roupa::setDataLote(std::string _data) {
-	m_data_lote = _data;
 }
 
 void
@@ -35,7 +25,8 @@ Roupa::print(std::ostream &o) const {
 	o << std::setfill (' ') << std::setw (10) << m_cod_barras << " | " 
 		<< std::setfill ('.') << std::setw (20) << m_descricao << " | " 
 		<< std::setfill (' ') << std::setw (5) << m_preco << " | "
-		<< std::setfill (' ') << std::setw (10) << m_data_lote << " | " 
-		<< std::setfill (' ') << std::setw (3) << m_tamanho;
+		<< std::setfill (' ') << std::setw (13) << m_marca << " | "
+		<< std::setfill (' ') << std::setw (9) << m_sexo << " | "
+		<< std::setfill (' ') << std::setw (1) << m_tamanho;
 	return o;
 }
