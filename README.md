@@ -1,5 +1,5 @@
 # Laboratório 3 - Programa 1  :computer:
-*Programação genérica e utilização de TADs genéricos*
+*Herança, Classes Abstratas e Manipulação de arquivos*
 
 * :bust_in_silhouette: _Aluno: **Leonardo dos Santos Matos**
 * :pencil:  _Matrícula: **20160143879**
